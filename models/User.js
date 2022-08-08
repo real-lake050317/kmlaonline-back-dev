@@ -19,12 +19,10 @@ const UserSchema = new mongoose.Schema({
   comments: {
     type: Number,
     required: true,
-    default: 0,
   },
   posts: {
     type: Number,
     required: true,
-    default: 0,
   },
   isAdmin: {
     type: Boolean,
@@ -43,6 +41,14 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     required: true,
   },
+  name: {
+    type: String,
+    required: true,
+  },
+  waver: {
+    type: Number,
+    required: true,
+  }
 });
 
 export default mongoose.model("User", UserSchema);

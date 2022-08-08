@@ -4,6 +4,9 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
 import cors from 'cors';
+import postsRoute from './routes/posts.js';
+import authRoute from './routes/auth.js';
+import usersRoute from './routes/users.js';
 
 const app = express();
 dotenv.config();
@@ -23,12 +26,17 @@ mongoose.connection.on("disconnected", () => {
 
 app.use(cookieParser());
 app.use(express.json());
+app.use(cors({origin: true, credentials: true}));
+
+app.use("/api/auth", authRoute);
+app.use("/api/posts", postsRoute);
+app.use("/api/users", usersRoute);
 
 app.use((req, res, next) => {
   console.log("Middleware Used");
 }); // Needs to be omited in production
 
-app.listen(process.env.PORT || 8800, () => {
+app.listen(8800, () => {
   connect();
   console.log("Backend connection established");
 });
