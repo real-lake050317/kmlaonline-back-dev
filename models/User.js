@@ -45,9 +45,24 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  englishName: {
+    type: String,
+    required: true,
+  },
   waver: {
     type: Number,
     required: true,
+  },
+  gender: {
+    type: String,
+    required: true,
+  },
+  schoolId: {
+    type: Number,
+    required: true,
+  },
+  interest: {
+    type: String
   }
 });
 
