@@ -34,7 +34,6 @@ export const getUser = async (req, res, next) => {
 export const getUserBySchoolId = async (req, res, next) => {
   try {
     const user = await User.find({ schoolId: req.params.schoolId });
-    console.log(user[0].name);
     res.status(200).json(user);
   } catch (err) {
     res.status(500).json(err);
