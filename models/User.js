@@ -60,6 +60,7 @@ const UserSchema = new mongoose.Schema({
   schoolId: {
     type: Number,
     required: true,
+    unique: true
   },
   interest: {
     type: String
