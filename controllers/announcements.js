@@ -1,8 +1,11 @@
 import Announcements from "../models/Announcements.js";
+import Posts from '../models/Posts.js';
 
 export const createPost = async (req, res, next) => {
   const newPost = new Announcements(req.body);
+  const newPostFullList = new Posts(req.body);
   try {
+    await newPostFullList.save();
     const savedPost = await newPost.save();
     req.status(200).json(savedPost);
   } catch (err) {

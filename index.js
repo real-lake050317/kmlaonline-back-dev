@@ -30,7 +30,7 @@ app.use(express.json());
 app.use(cors({origin: true, credentials: true}));
 
 app.use("/api/auth", authRoute);
-//app.use("/api/posts", postsRoute);
+app.use("/api/posts", postsRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/announcements", announcementsRoute);
 
