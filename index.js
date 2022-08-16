@@ -7,6 +7,7 @@ import cors from 'cors';
 import postsRoute from './routes/posts.js';
 import authRoute from './routes/auth.js';
 import usersRoute from './routes/users.js';
+import announcementsRoute from './routes/announcements.js';
 
 const app = express();
 dotenv.config();
@@ -29,8 +30,9 @@ app.use(express.json());
 app.use(cors({origin: true, credentials: true}));
 
 app.use("/api/auth", authRoute);
-app.use("/api/posts", postsRoute);
+//app.use("/api/posts", postsRoute);
 app.use("/api/users", usersRoute);
+app.use("/api/announcements", announcementsRoute);
 
 app.use((req, res, next) => {
   console.log("Middleware Used");
